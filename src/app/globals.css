@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --background: #04040a;
+  --foreground: #f6f7fb;
+  --accent: #6a7dff;
+  --accent-2: #4de0ff;
+  --muted: #b8b9c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(120% 120% at 50% 20%, #0d0c22 0%, #050510 50%, #03030a 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background: radial-gradient(500px 500px at 20% 10%, rgba(104, 87, 255, 0.28), transparent 55%),
+    radial-gradient(520px 520px at 80% 20%, rgba(77, 224, 255, 0.2), transparent 60%),
+    radial-gradient(600px 600px at 50% 70%, rgba(255, 95, 216, 0.16), transparent 60%);
+  filter: blur(10px);
+}
+
+body::after {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 140px 140px;
+  opacity: 0.5;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(20px);
+}
+
+.glow-border {
+  position: relative;
+}
+
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(120deg, rgba(106, 125, 255, 0.7), rgba(77, 224, 255, 0.7));
+  border-radius: inherit;
+  filter: blur(18px);
+  opacity: 0.4;
+  z-index: -1;
+}
